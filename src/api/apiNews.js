@@ -3,7 +3,8 @@ import axios from "axios";
 const BASE_URL= 'https://api.currentsapi.services/v1/latest-news'
 const API_KEY= 'jo-WVTytojZuj4X7S9oiYCPN9JoEV6Vc7vbCLZwBunv6mw-o'
 
-console.log(BASE_URL)
+const apikey = process.env.REACT_APP_NEWS_API_KEY
+console.log(apikey)
 
 export const getNews = async () => {
     try {
