@@ -2,17 +2,24 @@ import React from 'react'
 import styles from './Categories.module.css'
 
 const Categories = ({categories, selectedCategories, setSelectedCategories}) => {
+ 
   return (
-    <div className={styles.categories}>
-      {categories.map(category => (
+    <div className={styles.categories}> 
         <button 
-            key={category} 
-            className={selectedCategories === category ? styles.active : styles.item} 
-            onClick={() => setSelectedCategories(category)}
+            className={!selectedCategories ? styles.active : styles.item} 
+            onClick={() => setSelectedCategories(null)}
         >
-          {category}
+          All
         </button>
-      ))}
+        {categories.map(category => (
+            <button 
+              key={category} 
+              className={selectedCategories === category ? styles.active : styles.item} 
+              onClick={() => setSelectedCategories(category)}
+            >
+              {category}
+            </button>
+        ))}
     </div>
   )
 }
