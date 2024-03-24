@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './NewsList.module.css'
 import NewsItem from '../NewsItem/NewsItem'
+import withSkeleton from '../../helpers/hoc/withSkeleton'
 
 
 const NewsList = ({news}) => {
@@ -13,4 +14,6 @@ const NewsList = ({news}) => {
   )
 }
 
-export default NewsList
+const NewsListWithSkeleton = withSkeleton(NewsList, 'item', 10)
+
+export default NewsListWithSkeleton
