@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './NewsBanner.module.css'
-import { formatTimeAgo } from '../../utils/formatTimeAgo'
+import { formatTimeAgo } from '../../helpers/formatTimeAgo'
 import Image from '../Image/Image'
 
 const NewsBanner = ({item}) => {
