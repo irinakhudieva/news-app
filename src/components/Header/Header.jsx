@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Header.module.css'
-import { formatDate } from '../../utils/formatDate'
+import { formatDate } from '../../helpers/formatDate'
 
 const Header = () => {
   return (
