@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-
 import Header from './components/Header/Header';
 import Main from './pages/Main/Main';
 
