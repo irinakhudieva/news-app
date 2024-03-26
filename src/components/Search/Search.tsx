@@ -1,13 +1,18 @@
-import React from 'react'
 import styles from './Search.module.css'
 
-const Search = ({keywordws, setKeywords}) => {
+interface Props {
+  keywords: string;
+  setKeywords:  (keywords: string) => void;
+}
+
+
+const Search = ({keywords, setKeywords}: Props) => {
   return (
     <div className={styles.search}>
        <input 
         type='text' 
         placeholder='Search'
-        value={keywordws} 
+        value={keywords} 
         onChange={(e) => setKeywords(e.target.value)} 
         className={styles.input} 
       />
