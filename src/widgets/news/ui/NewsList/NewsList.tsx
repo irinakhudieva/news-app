@@ -2,18 +2,20 @@ import { INews } from '../../../../entities/news'
 import NewsCard from '../../../../entities/news/ui/NewsCard/NewsCard'
 import withSkeleton from '../../../../shared/hoc/withSkeleton'
 import styles from './NewsList.module.css'
+import { ReactNode } from 'react'
 
 interface Props {
   news?: INews[];
   type: 'banner' | 'item';
   direction: 'row' | 'column';
+  viewNewsSlot?: (news: INews) => ReactNode
 }
 
-const NewsList = ({news, type}: Props) => {
+const NewsList = ({news, type, viewNewsSlot}: Props) => {
   return (
     <ul className={`${type === 'item' ? styles.items : styles.banners}`}>
       {news?.map(item => (
-        <NewsCard item={item} key={item.id} type={type} />
+        <NewsCard viewNewsSlot={viewNewsSlot} item={item} key={item.id} type={type} />
       ))}
     </ul>
   )
