@@ -5,21 +5,21 @@ import Skeleton from "../ui/Skeleton/Skeleton";
 
 interface Props {
     isLoading: boolean;
+    direction?: DirectionType;
+    type?: SkeletonType;
 }
   
 function withSkeleton<P extends object>(
     Component: React.ComponentType<P>, 
-    type?: SkeletonType,  
     count?: number, 
-    direction?: DirectionType
 ) {
     return function WhithSkeleton(props: Props & P) {
-        const {isLoading, ...restProps} = props
+        const {isLoading, type, direction, ...restProps} = props
         if(isLoading) {
             return <Skeleton type={type} count={count} direction={direction} />
         }
 
-        return <Component {...(restProps as P)} />
+        return <Component type={type} direction={direction} {...(restProps as P)} />
     }
 }
 

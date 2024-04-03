@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../../../app/appStrore';
-import { useGetCategoriesQuery } from '../../../../entities/news/api/newsApi';
+import { CategoriesType } from '../../../../entities/category';
 import { setFilters } from '../../../../entities/news/model/newsSlice';
 import { Categories } from '../../../../features/category';
 import { Search } from '../../../../features/search';
@@ -10,10 +10,11 @@ import styles from './NewsFilters.module.css'
 
 interface Props {
   filters: IFilters;
+  categories: CategoriesType[]
 }
 
-const NewsFilters = ({ filters }: Props) => {
-  const { data } = useGetCategoriesQuery(null);
+const NewsFilters = ({ filters, categories }: Props) => {
+ 
 
   const dispatch = useAppDispatch()
 
@@ -21,9 +22,9 @@ const NewsFilters = ({ filters }: Props) => {
     <div className={styles.filters}>
         <Slider>
           <>
-          {data && (
+          {categories && (
                <Categories 
-                    categories={data.categories} 
+                    categories={categories} 
                     selectedCategories={filters.category} 
                     setSelectedCategories={(category) =>  
                       dispatch(setFilters({key: 'category', value: category}))}
