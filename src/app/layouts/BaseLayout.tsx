@@ -1,4 +1,4 @@
-import { Main } from "../../pages/main";
+import { Outlet } from "react-router-dom";
 import { Header } from "../../widgets/header/ui";
 
 
@@ -7,7 +7,7 @@ function BaseLayout() {
     <>
       <Header />
       <div className='container'>
-          <Main />
+          <Outlet />
       </div>
     </>
   );

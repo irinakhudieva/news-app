@@ -11,7 +11,7 @@ export interface INews {
     language: string;
     published: string;
     title?: string | number | null;
-    url: string | null | undefined
+    url: string 
 }
 
 export interface NewsApiResponse {
